@@ -1,5 +1,5 @@
-i.MX Linux Yocto Project BSP Releases
-=====================================
+Apalis iMX8 Linux Yocto Project bring-up
+========================================
 
 To get the BSP you need to have `repo` installed.
 
@@ -15,76 +15,16 @@ Download the Yocto Project Environment into your directory:
 -----------------------------------------------------------
 $: mkdir fsl-arm-yocto-bsp
 $: cd fsl-arm-yocto-bsp
-$: repo init -u https://source.codeaurora.org/external/imx/imx-manifest -b imx-linux-morty [-m <manifest>]
+$: repo init -u https://github.com/toradex/imx-manifest.git -b toradex-linux-morty [-m <manifest>]
 $: repo sync
 
 <manifest>                      Description
 default.xml                     The latest BSP GA release [1]
                                 (this is the default value)
-imx-<version>.xml               BSP GA release
-imx-<version>-<demo>-demo.xml   Demo [2]
-
-[1] When the default manifest is used, the project environment can be updated
-to the latest release via repo sync.
-[2] Demos are built and minimally tested but are otherwise not supported.
 
 For errors with repo init, remove the .repo directory and run repo init again.
 
-See ChangeLog for description of patch releases and tags for each update.
+For Apalis iMX8 use:
+repo init -u https://github.com/toradex/imx-manifest.git -b toradex-linux-morty -m toradex-4.9.51-8qm_beta1_bring_up.xml
 
-Examples
---------
-To download the 4.9.51-8mq_beta release
-repo init -u https://source.codeaurora.org/external/imx/imx-manifest  -b imx-linux-morty -m imx-4.9.51-8mq_beta.xml
-
-To download the 4.9.51-8qm_beta1 release
-repo init -u https://source.codeaurora.org/external/imx/imx-manifest  -b imx-linux-morty -m imx-4.9.51-8qm_beta1.xml
-
-To download the 4.9.51-8qxp_alpha release
-repo init -u https://source.codeaurora.org/external/imx/imx-manifest  -b imx-linux-morty -m imx-4.9.51-8qxp_alpha.xml
-
-To download the 4.9.11-1.0.0_ga release
-repo init -u https://source.codeaurora.org/external/imx/imx-manifest  -b imx-linux-morty -m imx-4.9.11-1.0.0_ga.xml
-
-Setup the build folder for a BSP release:
------------------------------------------
-Note: The remaining instructions are for setting up a BSP release only. For setting
-up a demo, please see imx-manifest/README-<demo> for further instructions.
-
-$: [MACHINE=<machine>] [DISTRO=fsl-imx-<backend>] source ./fsl-setup-release.sh -b bld-<backend>
-
-<machine> defaults to imx6qsabresd
-
-<backend>   Graphics backend type
-x11         X11 (this is the default if DISTRO is unspecified)
-wayland     Wayland
-xwayland    Wayland with XWayland support
-fb          Framebuffer
-
-Note DirectFB is not supported in 4.1.15 release.
-
-Note if the poky community distro is used then build breaks will happen with some
-components using our meta-fsl-bsp-release layer.
-
-Examples:
-
-- Setup for X11.
-$: MACHINE=imx7ulpevk DISTRO=fsl-imx-x11 source ./fsl-setup-release.sh -b bld-x11
-
-- Setup for Wayland.
-$: MACHINE=imx7ulpevk DISTRO=fsl-imx-wayland source ./fsl-setup-release.sh -b bld-wayland
-
-- Setup for Wayland and X11.
-$: MACHINE=imx7ulpevk DISTRO=fsl-imx-xwayland source ./fsl-setup-release.sh -b bld-xwayland
-
-- Setup for Frame Buffer.
-$: MACHINE=imx7ulpevk DISTRO=fsl-imx-fb source ./fsl-setup-release.sh -b bld-fb
-
-
-Build an image:
----------------
-bitbake <image recipe>
-
-Some image recipes:
-fsl-image-gui - full image with demos and tests used for testing with graphics, no QT.
-fsl-image-qt5 - fsl-image-gui with QT 5.8.
+When this succeeded, see README-TORADEX for further instructions.

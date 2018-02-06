@@ -25,6 +25,6 @@ default.xml                     The latest BSP GA release [1]
 For errors with repo init, remove the .repo directory and run repo init again.
 
 For Apalis iMX8 use:
-repo init -u https://github.com/toradex/imx-manifest.git -b toradex-linux-morty -m toradex-4.9.51-8qm_beta1_bring_up.xml
+repo init -u https://github.com/toradex/imx-manifest.git -b toradex-linux-morty -m toradex-4.9.51-8qm_beta2_bring_up.xml
 
 When this succeeded, see README-TORADEX for further instructions.

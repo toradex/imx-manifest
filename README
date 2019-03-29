@@ -1,5 +1,5 @@
-Colibri iMX8 Linux Yocto Project bring-up
-================================================
+Colibri iMX8QXP V1.0B Linux Yocto Project bring-up
+==================================================
 
 To get the BSP you need to have `repo` installed.
 
@@ -15,7 +15,7 @@ Download the Yocto Project Environment into your directory:
 -----------------------------------------------------------
 $: mkdir fsl-arm-yocto-bsp
 $: cd fsl-arm-yocto-bsp
-$: repo init -u git://github.com/toradex/imx-manifest.git -b toradex-linux-rocko [-m <manifest>]
+$: repo init -u git://github.com/toradex/imx-manifest.git -b toradex-linux-sumo [-m <manifest>]
 $: repo sync
 
 <manifest>                      Description
@@ -24,7 +24,7 @@ default.xml                     The latest BSP GA release [1]
 
 For errors with repo init, remove the .repo directory and run repo init again.
 
-For Colibri iMX8QXP use:
-repo init -u git://github.com/toradex/imx-manifest.git -b toradex-linux-rocko -m toradex-4.9.123-2.3.0-8mm_ga.xml
+For Apalis iMX8QM V1.0A use:
+repo init -u git://github.com/toradex/imx-manifest.git -b toradex-linux-morty -m toradex-4.9.51-8qm_beta2_bring_up.xml
 
 When this succeeded, see README-TORADEX for further instructions.
